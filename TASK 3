@@ -1,0 +1,37 @@
+
+#include <climits>
+#include <iostream>
+using namespace std;
+
+int main() {
+    int journeys = 3000000;
+    long long balancePaise = 10000;
+    double fareRupees = 10.50;
+    bool peakHour = true;
+
+    cout << "Number of Journeys: " << journeys << endl;
+    cout << "Balance: " << balancePaise / 100.0 << " Rupees" << endl;
+    cout << "Fare: Rs " << fareRupees << endl;
+    cout << "Peak Hour: " << boolalpha << peakHour << endl;
+
+    cout << "Size of int: " << sizeof(int) << " bytes" << endl;
+    cout << "Size of long long: " << sizeof(long long) << " bytes" << endl;
+    cout << "Size of double: " << sizeof(double) << " bytes" << endl;
+    cout << "Size of bool: " << sizeof(bool) << " bytes" << endl;
+
+    cout << "Maximum int: " << INT_MAX << endl;
+
+    return 0;
+}
+```
+Sample Output
+Number of Journeys: 3000000
+Balance: 100 Rupees
+Fare: Rs 10.5
+Peak Hour: true
+Size of int: 4 bytes
+Size of long long: 8 bytes
+Size of double: 8 bytes
+Size of bool: 1 bytes
+Maximum int: 2147483647
+
