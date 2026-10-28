@@ -1,0 +1,76 @@
+
+#include <iostream>
+using namespace std;
+
+enum class Zone {
+    Inner,
+    Middle,
+    Outer
+};
+
+constexpr long long FARES[] = {
+    1000,
+    2000,
+    3000
+};
+
+constexpr long long MIN_BALANCE = 5000;
+
+class SmartCard {
+private:
+    long long balance;
+
+public:
+    SmartCard(long long amount) : balance(amount) {}
+
+    bool travel(Zone zone, bool peak) {
+        int index = static_cast<int>(zone);
+
+        long long fare = FARES[index];
+
+        if (peak) {
+            fare += fare * 20 / 100;
+        }
+
+        if (balance - fare < MIN_BALANCE) {
+            return false;
+        }
+
+        balance -= fare;
+        return true;
+    }
+
+    long long getBalance() const {
+        return balance;
+    }
+};
+
+int main() {
+    SmartCard card(10000);
+
+    cout << (card.travel(Zone::Inner, false)
+                 ? "Journey Approved"
+                 : "Journey Denied") << '\n';
+
+    cout << (card.travel(Zone::Outer, true)
+                 ? "Journey Approved"
+                 : "Journey Denied") << '\n';
+
+    cout << "Remaining Balance: Rs "
+         << card.getBalance() / 100 << '\n';
+
+    return 0;
+}
+
+Output
+Journeys: 20000
+Integer-paise total: Rs 246800.00
+Double total: Rs 246800.00
+
+Journeys: 500000
+Integer-paise total: Rs 6170000.00
+Double total: Rs 6170000.00
+
+Journeys: 3000000
+Integer-paise total: Rs 37020000.00
+Double total: Rs 37020000.00
