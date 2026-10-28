@@ -1,0 +1,42 @@
+
+#include <iomanip>
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+    int journeys;
+    double fare;
+
+    cout << "Enter number of journeys: ";
+
+    if (!(cin >> journeys) || journeys < 0) {
+        cout << "Invalid number of journeys" << endl;
+        return 1;
+    }
+
+    cout << "Enter fare in rupees: ";
+
+    if (!(cin >> fare) || fare < 0) {
+        cout << "Invalid fare" << endl;
+        return 1;
+    }
+
+    cout << fixed << setprecision(2);
+
+    cout << "\n----- Journey Report -----\n";
+    cout << "Number of journeys: " << journeys << '\n';
+    cout << "Fare per journey: Rs " << fare << '\n';
+    cout << "Total fare: Rs " << journeys * fare << '\n';
+
+    return 0;
+}
+
+Sample Input
+Enter number of journeys: 3
+Enter fare in rupees: 20
+Output
+----- Journey Report -----
+Number of journeys: 3
+Fare per journey: Rs 20.00
+Total fare: Rs 60.00
