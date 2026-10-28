@@ -1,0 +1,44 @@
+
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long journeyCounts[] = {
+        20000,
+        500000,
+        3000000
+    };
+
+    long long farePaise = 1234;
+    double fareRupees = 12.34;
+
+    cout << fixed << setprecision(2);
+
+    for (long long n : journeyCounts) {
+        long long totalPaise = n * farePaise;
+        double totalRupees = n * fareRupees;
+
+        cout << "Journeys: " << n << '\n';
+        cout << "Integer-paise total: Rs "
+             << totalPaise / 100.0 << '\n';
+
+        cout << "Double total: Rs "
+             << totalRupees << "\n\n";
+    }
+
+    return 0;
+} 
+
+Output
+Journeys: 20000
+Integer-paise total: Rs 246800.00
+Double total: Rs 246800.00
+
+Journeys: 500000
+Integer-paise total: Rs 6170000.00
+Double total: Rs 6170000.00
+
+Journeys: 3000000
+Integer-paise total: Rs 37020000.00
+Double total: Rs 37020000.00
