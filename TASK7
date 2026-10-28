@@ -1,0 +1,64 @@
+
+#include <iostream>
+using namespace std;
+
+constexpr long long MIN_BALANCE = 5000;
+
+class SmartCard {
+private:
+    long long balance;
+
+public:
+    SmartCard(long long initialBalance) {
+        balance = initialBalance;
+    }
+
+    bool canTravel(long long fare) const {
+        return fare >= 0 &&
+               balance >= fare &&
+               balance - fare >= MIN_BALANCE;
+    }
+
+    bool deduct(long long fare) {
+        if (!canTravel(fare)) {
+            return false;
+        }
+
+        balance -= fare;
+        return true;
+    }
+
+    long long getBalance() const {
+        return balance;
+    }
+};
+
+int main() {
+    SmartCard card(10000);
+
+    if (card.deduct(1000)) {
+        cout << "Journey Successful" << endl;
+    } else {
+        cout << "Journey Denied" << endl;
+    }
+
+    cout << "Balance: Rs "
+         << card.getBalance() / 100 << endl;
+
+    if (card.deduct(6000)) {
+        cout << "Journey Successful" << endl;
+    } else {
+        cout << "Journey Denied" << endl;
+    }
+
+    cout << "Final Balance: Rs "
+         << card.getBalance() / 100 << endl;
+
+    return 0;
+}
+
+Output
+Journey Successful
+Balance: Rs 90
+Journey Denied
+Final Balance: Rs 90
