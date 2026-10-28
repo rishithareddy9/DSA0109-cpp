@@ -1,0 +1,45 @@
+```cpp
+#include <iostream>
+using namespace std;
+
+class SmartCard {
+private:
+    int balance;
+
+public:
+    SmartCard(int b) {
+        balance = b;
+    }
+
+    void displayBalance() {
+        cout << "Card Balance: Rs " << balance << endl;
+    }
+};
+
+class Passenger {
+public:
+    string name;
+
+    Passenger(string n) {
+        name = n;
+    }
+
+    void displayPassenger() {
+        cout << "Passenger Name: " << name << endl;
+    }
+};
+
+int main() {
+    Passenger p("Ravi");
+    SmartCard card(100);
+
+    p.displayPassenger();
+    card.displayBalance();
+
+    return 0;
+}
+```
+
+Output
+Passenger Name: Ravi
+Card Balance: Rs 100
